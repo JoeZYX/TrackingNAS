@@ -1,0 +1,71 @@
+backbone:
+- - NAS_REP_ConvBNBlock
+  - - 96
+    - 1
+    - 0
+- - NAS_REP_ConvBNBlock
+  - - 128
+    - 2
+    - 0
+- - branch_block
+  - - 128
+    - 5
+    - 1
+- - NAS_REP_ConvBNBlock
+  - - 256
+    - 2
+    - 0
+- - branch_block
+  - - 256
+    - 5
+    - 1
+- - NAS_REP_ConvBNBlock
+  - - 512
+    - 2
+    - 0
+- - branch_block
+  - - 512
+    - 5
+    - 1
+- - NAS_REP_ConvBNBlock
+  - - 1024
+    - 2
+    - 0
+- - branch_block
+  - - 1024
+    - 5
+    - 1
+- - NAS_REP_ConvBNBlock
+  - - 1024
+    - 1
+    - 0
+head:
+  hm: 3
+  reg: 3
+  tracking: 3
+  wh: 3
+neck:
+- - - 2
+    - 2
+    - 3
+  - - 2
+    - 2
+    - 3
+  - - 2
+    - 2
+    - 3
+- - - 2
+    - 2
+    - 3
+  - - 2
+    - 2
+    - 3
+- - - 2
+    - 2
+    - 3
+- - 2
+  - 2
+  - 3
+- - 2
+  - 4
+  - 3

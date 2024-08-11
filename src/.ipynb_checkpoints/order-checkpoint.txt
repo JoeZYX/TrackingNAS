@@ -1,0 +1,86 @@
+python convert_onnx.py ctdet --exp_id detection80_2inputs_t --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/ctdet/detection80_2inputs_t/model_last.pth  --arch generic --backbone mobilenet --neck dlaup --dla_node conv --tracking --pre_img
+
+python convert_onnx.py ctdet --exp_id detection80_1input --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/ctdet/detection80_1input/model_last.pth  --arch generic --backbone mobilenet --neck dlaup --dla_node conv
+
+python convert_onnx.py tracking --exp_id tracking80 --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/tracking/tracking80/model_last.pth  --arch generic --backbone mobilenet --neck dlaup --dla_node conv --tracking
+
+
+
+
+
+python convert_onnx.py ctdet --exp_id detection6_2inputs_t --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/ctdet/detection6_2inputs_t/model_last.pth  --arch generic --backbone mobilenet --neck dlaup --dla_node conv --tracking --pre_img
+
+python convert_onnx.py ctdet --exp_id detection6_1input --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/ctdet/detection6_1input/model_last.pth  --arch generic --backbone mobilenet --neck dlaup --dla_node conv
+
+python convert_onnx.py tracking --exp_id tracking6 --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/tracking/tracking6/model_last.pth  --arch generic --backbone mobilenet --neck dlaup --dla_node conv --tracking
+
+
+python convert_onnx.py tracking --exp_id custom_tracking6_97_0_3 --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/tracking/custom_tracking6_97_0_3/model_last.pth  --arch custom --nectwork_seed 97 --width_mult 0.3  --tracking
+
+# ---------- demo -------------
+
+python demo.py ctdet --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/ctdet/detection80_1input/model_last.pth --arch generic --backbone mobilenet --neck dlaup --dla_node conv --demo /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/images --debug 4
+
+
+python demo.py tracking --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/tracking/tracking80/model_last.pth --arch generic --backbone mobilenet --neck dlaup --dla_node conv --demo /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/images --debug 4
+
+
+
+
+python demo.py ctdet --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/ctdet/detection6_1input/model_last.pth --arch generic --backbone mobilenet --neck dlaup --dla_node conv --demo /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/images --debug 4
+
+
+python demo.py tracking --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/tracking/tracking6/model_last.pth --arch generic --backbone mobilenet --neck dlaup --dla_node conv --demo /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/images --debug 4
+
+
+
+python demo.py tracking --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/tracking/custom_tracking6_97_0_3/model_last.pth --arch custom --nectwork_seed 97 --width_mult 0.3 --demo /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/imgs --debug 4
+
+
+python demo.py tracking --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/tracking/custom_tracking6_105_0_3/model_last.pth --arch custom --nectwork_seed 105 --width_mult 0.3 --demo /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/imgs --debug 4
+
+python demo.py tracking --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/tracking/custom_tracking6_41_0_4/model_last.pth --arch custom --nectwork_seed 41 --width_mult 0.4 --demo /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/imgs --debug 4
+
+python demo.py tracking --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/tracking/coco_custom_tracking_109_0_3/model_last.pth --arch custom --dataset coco_custom --nectwork_seed 109 --width_mult 0.3 --demo /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/imgs --debug 4
+
+custom_tracking6_41_0_4
+coco_custom_tracking_109_0_3
+custom_tracking6_105_0_3
+
+python convert_onnx.py tracking --exp_id custom_tracking6_105_0_3 --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/tracking/custom_tracking6_105_0_3/model_last.pth  --arch custom --nectwork_seed 105 --width_mult 0.3  --tracking
+
+python convert_onnx.py tracking --exp_id custom_tracking6_41_0_4 --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/tracking/custom_tracking6_41_0_4/model_last.pth  --arch custom --nectwork_seed 41 --width_mult 0.4  --tracking
+
+
+python convert_onnx.py tracking --exp_id coco_custom_tracking_109_0_3 --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/tracking/coco_custom_tracking_109_0_3/model_check.pth  --arch custom --nectwork_seed 109 --width_mult 0.3  --tracking --dataset coco_custom
+
+--------------
+python convert_onnx.py tracking --exp_id coco_custom_tracking_109_0_3_night_combine_sub_cat --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/tracking/coco_custom_tracking_109_0_3_night_combine_sub_cat/model_last.pth  --arch custom --nectwork_seed 109 --width_mult 0.3  --tracking --dataset coco_custom --combine_style sub_cat
+
+python demo.py tracking --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/tracking/coco_custom_tracking_109_0_3_night_combine_sub_cat/model_last.pth --arch custom --dataset coco_custom --nectwork_seed 109 --width_mult 0.3 --combine_style sub_cat --demo /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/imgs6 --debug 4 --track_thresh 0.2
+
+
+python convert_onnx.py tracking --exp_id coco_custom_tracking_109_0_3_night --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/tracking/coco_custom_tracking_109_0_3_night/model_last.pth  --arch custom --nectwork_seed 109 --width_mult 0.3  --tracking --dataset coco_custom 
+
+python demo.py tracking --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/tracking/coco_custom_tracking_109_0_3_night/model_last.pth --arch custom --dataset coco_custom --nectwork_seed 109 --width_mult 0.3 --demo /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/imgs6 --debug 4 --track_thresh 0.2
+
+
+
+
+
+
+
+python demo.py tracking --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/tracking/coco_custom_tracking_109_0_3/model_check.pth --arch custom --dataset coco_custom --nectwork_seed 109 --width_mult 0.3 --demo /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/imgs5 --debug 4
+
+
+
+
+
+
+# ----------- pth inference -----------
+
+python demo.py tracking --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp/tracking/coco_custom_tracking_109_0_3_night_combine_sub_cat/model_last.pth --arch custom --dataset coco_custom --nectwork_seed 109 --width_mult 0.3 --combine_style sub_cat --demo /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/imgs6 --debug 4 --track_thresh 0.2
+
+# -------------- onnx inference ----------------------
+python demo.py tracking --load_model /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/models/coco_custom_tracking_109_0_3_night_combine_sub_cat.onnx --arch custom --dataset coco_custom --nectwork_seed 109 --width_mult 0.3 --combine_style sub_cat --demo /pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/imgs6 --debug 4 --track_thresh 0.2
+

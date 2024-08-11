@@ -15,10 +15,9 @@ class COCO_CUS(GenericDataset):
   # ----------------------------------------------
   # default_resolution = [512, 512]
   default_resolution = [640, 640]
-  #num_categories = 80
-  # class_name = ['car', 'truck', 'motorcycle', 'bus', 'person', 'bicycle']
+
   class_name = ['car', 'truck', 'van', 'bus']
-  # _valid_ids = [1,2,3,4,5,6]
+
   _valid_ids = [1,2,3,4]
 
 
@@ -39,10 +38,8 @@ class COCO_CUS(GenericDataset):
   max_objs = 128
   def __init__(self, opt, split):
     # load annotations
-    # data_dir = os.path.join(opt.data_dir, 'coco_custom')
-    # data_dir = os.path.join(opt.data_dir, 'coco_custom_small')
-    # data_dir = os.path.join(opt.data_dir, 'coco_custom_night')
-    data_dir = os.path.join(opt.data_dir, 'notebook_data')
+    data_dir = os.path.join(opt.data_dir, opt.data_fold_name)
+      
     img_dir = os.path.join(data_dir, '{}2017'.format(split))
     if opt.trainval:
       split = 'test'

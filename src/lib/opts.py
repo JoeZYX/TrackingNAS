@@ -258,7 +258,6 @@ class opts(object):
     
     # custom mode
     self.parser.add_argument('--nectwork_seed', type=int, default=1)
-    self.parser.add_argument('--width_mult', type=float, default=0.3)
 
     # quantization
     self.parser.add_argument('--quant', type=str, default=None,
@@ -269,7 +268,14 @@ class opts(object):
     self.parser.add_argument('--combine_style', type=str, default="add", help='combine_style')
 
     # oneforall nas parameters
-    
+    self.parser.add_argument('--oneforall_progressive', action='store_true')
+    self.parser.add_argument('--oneforall_pregressive_epoch', type=int, default=1)
+    self.parser.add_argument('--oneforall_random_batch', type=int, default=2)
+    self.parser.add_argument('--width_mult', type=float, default=0.3)
+    self.parser.add_argument('--data_fold_name', type=str, help='the name of data')
+
+      
+
   def parse(self, args=''):
     if args == '':
       opt = self.parser.parse_args()
@@ -333,7 +339,7 @@ class opts(object):
     # log dirs
     opt.root_dir = os.path.join(os.path.dirname(__file__), '..', '..')
     opt.data_dir = os.path.join(opt.root_dir, '../data')
-    opt.exp_dir = os.path.join(opt.root_dir, 'exp', opt.task)
+    opt.exp_dir = os.path.join(opt.root_dir, '../exp', opt.task)
     opt.save_dir = os.path.join(opt.exp_dir, opt.exp_id)
     opt.debug_dir = os.path.join(opt.save_dir, 'debug')
     
@@ -404,15 +410,15 @@ class opts(object):
 
 
     opt.max_kernel_size     = 5
-    opt.width_mult          = 0.25
+
     opt.pre_img             = True
     opt.combine_style       = "sub_cat"
     opt.verbose             = False
     opt.scaling_factor      = 0.5
     opt.skip_connection     = True
     opt.onceforall_config_path = "network_config.yaml"
-    opt.oneforall_pregressive_epoch   = 1
-    opt.oneforall_random_batch  = 2
+
+
     return opt
 
   def init(self, args=''):

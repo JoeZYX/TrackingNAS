@@ -128,9 +128,9 @@ def demo(opt):
           # if not is_video and cnt == len(image_names):
           #   return 
       #save_and_exit(opt, out, results)
-      with open('/pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/sub_detrac/{}.pickle'.format(video), 'wb') as handle:
-        pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)
-      print("------------------------- saving ---------------------------")
+      # with open('/pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/sub_detrac/{}.pickle'.format(video), 'wb') as handle:
+      #   pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)
+      # print("------------------------- saving ---------------------------")
       
 
 

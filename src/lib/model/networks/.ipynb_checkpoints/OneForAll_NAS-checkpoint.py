@@ -1366,7 +1366,7 @@ def fill_fc_weights(layers):
                 nn.init.constant_(m.bias, 0)
 
 class OneForAll_SuperNetNetwork(nn.Module):
-    def __init__(self,  network_config,  network_seed = 1, opt = None):
+    def __init__(self,  network_config, opt = None):
         super(OneForAll_SuperNetNetwork, self).__init__()
         
         self.opt = opt

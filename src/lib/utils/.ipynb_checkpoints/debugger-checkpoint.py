@@ -252,8 +252,8 @@ class Debugger(object):
       np.savetxt(path + '/id.txt', np.ones(1) * (idx + 1), fmt='%d')
     for i, v in self.imgs.items():
       if i in self.opt.save_imgs or self.opt.save_imgs == []:
-        print("============== save img ============")
-        path = "/pfs/data5/home/kit/tm/px6680/Conference/WACV/CenterTrack/exp"
+        #print("============== save img ============")
+        path = "/pfs/data5/home/kit/tm/px6680/Conference/Syntra/TrackingNAS/exp"
         cv2.imwrite(
           path + '/{}{}{}.png'.format(prefix, i, self.opt.save_img_suffix), v)
         print(path + '/{}{}{}.png'.format(prefix, i, self.opt.save_img_suffix))

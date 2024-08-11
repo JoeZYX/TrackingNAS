@@ -126,8 +126,8 @@ class Trainer(object):
     model_with_loss = self.model_with_loss
 
 
-    total_params = sum(p.numel() for p in model_with_loss.model.parameters() if p.requires_grad)
-    print(f'0 At at start : Total trainable parameters: {total_params}')
+    # total_params = sum(p.numel() for p in model_with_loss.model.parameters() if p.requires_grad)
+    # print(f'0 At at start : Total trainable parameters: {total_params}')
 
     if trainig_configs and epoch in trainig_configs.keys():
         random_flag = False
@@ -152,8 +152,8 @@ class Trainer(object):
       torch.cuda.empty_cache()
 
 
-    total_params = sum(p.numel() for p in model_with_loss.model.parameters() if p.requires_grad)
-    print(f'1 After the set : Total trainable parameters: {total_params}')
+    # total_params = sum(p.numel() for p in model_with_loss.model.parameters() if p.requires_grad)
+    # print(f'1 After the set : Total trainable parameters: {total_params}')
 
 
       
@@ -173,7 +173,7 @@ class Trainer(object):
       for k in batch:
         if k != 'meta':
           batch[k] = batch[k].to(device=opt.device, non_blocking=True)   
-      if iter_id%opt.oneforall_random_batch==0 and random_flag:
+      if iter_id%opt.oneforall_random_batch==0 and random_flag and trainig_configs:
           model_with_loss.model.random_set_current_runtime_depth_and_kernel(    all_layers=False, active_net=False, active_all_sub_net=random.choice([True, False]))
           total_params = sum(p.numel() for p in model_with_loss.model.parameters() if p.requires_grad)
           print(f'1。5 At random setting : Total trainable parameters: {total_params}')
@@ -210,11 +210,11 @@ class Trainer(object):
     ret = {k: v.avg for k, v in avg_loss_stats.items()}
     ret['time'] = bar.elapsed_td.total_seconds() / 60.
 
-    total_params = sum(p.numel() for p in model_with_loss.model.parameters() if p.requires_grad)
-    print(f'2: After the Training : Total trainable parameters: {total_params}')
-    model_with_loss.model.reset_active_depth_and_conv()
-    total_params = sum(p.numel() for p in model_with_loss.model.parameters() if p.requires_grad)
-    print(f'3: At the reset : Total trainable parameters: {total_params}')
+    # total_params = sum(p.numel() for p in model_with_loss.model.parameters() if p.requires_grad)
+    # print(f'2: After the Training : Total trainable parameters: {total_params}')
+    # model_with_loss.model.reset_active_depth_and_conv()
+    # total_params = sum(p.numel() for p in model_with_loss.model.parameters() if p.requires_grad)
+    # print(f'3: At the reset : Total trainable parameters: {total_params}')
 
     return ret, results
   

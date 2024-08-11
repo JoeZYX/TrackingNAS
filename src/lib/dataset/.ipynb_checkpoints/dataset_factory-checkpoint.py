@@ -21,7 +21,7 @@ from .datasets.coco_custom import COCO_CUS
 dataset_factory = {
   'custom': CustomDataset,
   'coco': COCO,
-  'coco_custom':COCO_CUS,
+  'syntra':COCO_CUS,
   'kitti': KITTI,
   'coco_hp': COCOHP,
   'mot': MOT,

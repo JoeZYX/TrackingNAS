@@ -70,7 +70,7 @@ def main(opt):
 
 
   model = create_model(opt.arch, opt.heads, opt.head_conv, opt=opt)
-  if opt.arch == "oneforall":
+  if opt.arch == "oneforall" and opt.oneforall_progressive:
       max_depth_stage   = model.get_the_run_time_depth_range()
       max_kernel_stage  = len([0] + list(range(1,opt.max_kernel_size+1,2)))
       trainig_configs   = {}
